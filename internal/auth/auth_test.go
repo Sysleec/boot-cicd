@@ -11,7 +11,7 @@ import (
 func TestGetAPIKey(t *testing.T) {
 
 	headers := http.Header{}
-	headers.Set("Authorization", "apiKey your-api-key")
+	headers.Set("Authorization", "ApiKey your-api-key")
 
 	// Test case: Valid authorization header
 	apiKey, err := GetAPIKey(headers)
