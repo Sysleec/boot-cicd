@@ -18,8 +18,11 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
 
+      - name: install staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
+
       - name: Run unit tests
         run: go test ./... -cover
 
       - name: style
-        run: test -z $(go fmt ./...)
+        run: test -z $(go fmt ./...) && staticcheck ./...
